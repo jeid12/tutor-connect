@@ -3,12 +3,14 @@ import express from "express";
 import "reflect-metadata";
 import { AppDataSource } from "./config/database";
 import authRoutes from "./routes/authRoutes";
+import routerProfile from "./routes/profileRoutes";
 
 const app = express();
 const PORT = process.env.PORT|| 3000;
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/profile", routerProfile);
 
 AppDataSource.initialize()
   .then(() => {
