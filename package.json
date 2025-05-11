@@ -1,0 +1,57 @@
+{
+  "name": "tutor-connect",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev  ./src/index.ts",
+    "start": "node build/index.js",
+    "build": "tsc",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migration:generate": "npm run typeorm migration:generate -- -d src/data-source.ts src/migrations/Init",
+    "migration:run": "npm run typeorm migration:run -- -d src/data-source.ts",
+    "migration:revert": "npm run typeorm migration:revert -- -d src/data-source.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeid12/tutor-connect.git"
+  },
+  "keywords": [],
+  "author": "jeid12",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeid12/tutor-connect/issues"
+  },
+  "homepage": "https://github.com/jeid12/tutor-connect#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^5.0.1",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.15.17",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.15.6",
+    "reflect-metadata": "^0.2.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "typeorm": "^0.3.23"
+  },
+  "watch": [
+    "src"
+  ],
+  "ext": "ts",
+  "ignore": [
+    "dist"
+  ],
+  "exec": "ts-node src/index.ts"
+}

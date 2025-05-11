@@ -1,3 +1,4 @@
 /.idea
 .env
 tutor-connect.iml
+/node_modules
