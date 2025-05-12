@@ -59,4 +59,17 @@ export const loginUser = async ({ email, password }: LoginDTO) => {
       },
     };
   };
+
+  //all users
+  export const getAllUsers = async () => {
+    const users = await userRepo.find();
+    return users;
+  }
+
+  //logout logic
+  export const logoutUser = async (userId: number) => {
+    // Invalidate the user's token or perform any other logout logic
+    // For example, you can remove the token from a blacklist or mark it as invalid in the database
+    return { message: "Logout successful" };
+  }
   

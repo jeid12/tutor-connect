@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_secret_key";
 
-export const authenticateJWT = (req: Request, res: Response, next: NextFunction) => {
+export const auth = (req: any, res: any, next: NextFunction) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith("Bearer "))
@@ -19,3 +19,4 @@ export const authenticateJWT = (req: Request, res: Response, next: NextFunction)
     res.status(403).json({ message: "Invalid token" });
   }
 };
+

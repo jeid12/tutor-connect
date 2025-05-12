@@ -47,3 +47,14 @@ export const remove = async (req: Request, res: Response) => {
     res.status(500).json({ message: (err as Error).message });
   }
 };
+//get profile by user id
+export const getProfileByUserId = async (req: any, res: any) => {
+  const userId = +req.params.userId;
+  try {
+    const profile = await profileService.getProfileByUserId(userId);
+    if (!profile) return res.status(404).json({ message: "Profile not found" });
+    res.json(profile);
+  } catch (err) {
+    res.status(500).json({ message: (err as Error).message });
+  }
+}

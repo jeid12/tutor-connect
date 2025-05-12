@@ -46,3 +46,10 @@ export const deleteProfile = async (id: number) => {
   await profileRepo.delete(id);
   return { message: "Profile deleted" };
 };
+//get probile by user id
+export const getProfileByUserId = async (userId: number) => {
+  return await profileRepo.findOne({
+    where: { user: { id: userId } },
+    relations: ["user"],
+  });
+}
